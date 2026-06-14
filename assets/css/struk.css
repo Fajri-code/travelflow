@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #f0f2f5; font-family: 'Plus Jakarta Sans', sans-serif; min-height: 100vh; padding: 20px; }
+a { text-decoration: none; color: inherit; }
+img { display: block; object-fit: cover; }
+
+/* ── Action Bar ── */
+.action-bar {
+    max-width: 720px; margin: 0 auto 16px;
+    display: flex; justify-content: space-between; align-items: center;
+}
+.btn-back {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: .82rem; font-weight: 700; color: #64748b;
+    background: #fff; border: 1.5px solid #e2e8f0;
+    padding: 8px 16px; border-radius: 20px;
+    transition: all .2s;
+}
+.btn-back:hover { border-color: #f97316; color: #f97316; }
+.btn-print {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: .82rem; font-weight: 700; color: #fff;
+    background: linear-gradient(135deg, #f97316, #ea580c);
+    border: none; padding: 8px 20px; border-radius: 20px;
+    cursor: pointer; box-shadow: 0 3px 10px rgba(249,115,22,.3);
+    transition: opacity .2s;
+}
+.btn-print:hover { opacity: .9; }
+
+/* ── Struk Wrapper ── */
+.struk-wrapper {
+    max-width: 720px; margin: 0 auto;
+    background: #fff; border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0,0,0,.12);
+    overflow: hidden;
+}
+
+/* ── Header ── */
+.struk-header {
+    background: linear-gradient(135deg, #1e3a5f 0%, #2d6a8f 50%, #c47c3c 100%);
+    padding: 28px 32px;
+    display: flex; justify-content: space-between; align-items: center;
+    position: relative; overflow: hidden;
+}
+.struk-header-img {
+    position: absolute;
+    inset: 0; width: 100%; height: 100%;
+    object-fit: cover; object-position: center;
+    opacity: .45;
+}
+.struk-header-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(15,40,80,.72) 0%, rgba(30,80,110,.45) 55%, rgba(180,100,30,.35) 100%);
+}
+.struk-brand { display: flex; align-items: center; gap: 14px; position: relative; z-index: 1; }
+.brand-icon {
+    width: 48px; height: 48px;
+    background: rgba(255,255,255,.2);
+    border-radius: 12px; display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem; color: #fff;
+}
+.brand-name { font-size: 1.3rem; font-weight: 800; color: #fff; }
+.brand-sub { font-size: .75rem; color: rgba(255,255,255,.75); }
+.struk-kode-wrap { text-align: right; position: relative; z-index: 1; }
+.struk-kode-label { font-size: .7rem; color: rgba(255,255,255,.7); margin-bottom: 4px; }
+.struk-kode { font-size: 1.3rem; font-weight: 800; color: #fff; letter-spacing: 2px; }
+.struk-tanggal { font-size: .72rem; color: rgba(255,255,255,.75); margin-top: 4px; }
+
+/* ── Status Banner ── */
+.status-banner {
+    padding: 12px 32px;
+    font-size: .88rem; font-weight: 700;
+    text-align: center; letter-spacing: .3px;
+}
+
+/* ── Body ── */
+.struk-body { padding: 28px 32px; }
+
+/* ── Section ── */
+.struk-section { margin-bottom: 24px; }
+.section-title {
+    font-size: .82rem; font-weight: 700; color: #94a3b8;
+    text-transform: uppercase; letter-spacing: .06em;
+    margin-bottom: 14px;
+}
+
+/* ── Info Grid ── */
+.info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.info-item { }
+.info-label { font-size: .72rem; color: #94a3b8; font-weight: 500; margin-bottom: 3px; }
+.info-val { font-size: .9rem; font-weight: 700; color: #1e293b; }
+
+/* ── Perjalanan Card ── */
+.perjalanan-card {
+    display: flex; gap: 16px; align-items: flex-start;
+    background: #f8fafc; border-radius: 12px; padding: 16px;
+    border: 1px solid #e2e8f0;
+}
+.perjalanan-img { width: 90px; height: 70px; border-radius: 10px; flex-shrink: 0; }
+.perjalanan-img-placeholder {
+    width: 90px; height: 70px; border-radius: 10px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2rem; background: linear-gradient(135deg, #fff5f0, #fed7aa);
+}
+.perjalanan-wisata { font-size: 1rem; font-weight: 800; color: #1e293b; margin-bottom: 4px; }
+.perjalanan-lokasi { font-size: .78rem; color: #64748b; margin-bottom: 10px; }
+.perjalanan-detail { display: flex; flex-wrap: wrap; gap: 6px; }
+.detail-badge {
+    background: #fff; border: 1px solid #e2e8f0;
+    font-size: .72rem; font-weight: 600; color: #64748b;
+    padding: 4px 10px; border-radius: 20px;
+}
+
+/* ── Divider ── */
+.struk-divider { height: 1px; background: #e2e8f0; margin: 20px 0; }
+.struk-divider.dashed { border-top: 2px dashed #e2e8f0; background: none; height: 0; }
+
+/* ── Biaya Table ── */
+.biaya-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+.biaya-table tr { border-bottom: 1px solid #f1f5f9; }
+.biaya-table td { padding: 10px 0; font-size: .85rem; color: #64748b; }
+.biaya-table td:first-child { font-weight: 600; color: #1e293b; width: 35%; }
+.biaya-table td.text-right { text-align: right; font-weight: 700; color: #1e293b; }
+.total-box {
+    display: flex; justify-content: space-between; align-items: center;
+    background: linear-gradient(135deg, #fff7ed, #fff);
+    border: 2px solid #fed7aa; border-radius: 12px;
+    padding: 16px 20px;
+}
+.total-box span { font-size: .88rem; font-weight: 700; color: #1e293b; }
+.total-val { font-size: 1.5rem; font-weight: 800; color: #f97316; }
+
+/* ── Barcode ── */
+.barcode-section { text-align: center; padding: 20px 0; }
+.barcode-wrap { display: inline-block; }
+.barcode-bars {
+    display: flex; align-items: flex-end; gap: 2px;
+    justify-content: center; margin-bottom: 8px;
+}
+.bar { background: #1e293b; border-radius: 1px; }
+.barcode-text {
+    font-size: .75rem; font-weight: 700; color: #64748b;
+    letter-spacing: 3px; margin-top: 6px;
+}
+.barcode-note { font-size: .75rem; color: #94a3b8; margin-top: 8px; }
+
+/* ── Footer ── */
+.struk-footer {
+    text-align: center; padding: 20px 0 4px;
+    font-size: .82rem; color: #94a3b8; line-height: 1.8;
+}
+.struk-footer strong { color: #f97316; }
+
+/* ── Print ── */
+@media print {
+    body { background: white; padding: 0; }
+    .no-print { display: none !important; }
+    .struk-wrapper { box-shadow: none; border-radius: 0; max-width: 100%; }
+}

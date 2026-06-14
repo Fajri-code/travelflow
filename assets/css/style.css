@@ -1,0 +1,40 @@
+:root {
+    --primary: #667eea;
+    --secondary: #764ba2;
+    --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+body {
+    background-color: #f0f2f5;
+}
+
+.navbar-tf {
+    background: var(--gradient);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.4rem;
+}
+
+.btn-tf {
+    background: var(--gradient);
+    color: white;
+    border: none;
+}
+
+.btn-tf:hover {
+    opacity: 0.9;
+    color: white;
+}
+
+.card-tf {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s;
+}
+
+.card-tf:hover {
+    transform: translateY(-4px);
+}

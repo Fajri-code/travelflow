@@ -1,0 +1,32 @@
+/* ============================================================
+   TravelFlow — sidebar.css
+   ============================================================ */
+
+.tf-sidebar {
+    width: var(--sidebar-width);
+    background: #fff;
+    border-right: 1px solid var(--border);
+    padding: 24px 14px;
+    position: fixed;
+    top: var(--nav-h); left: 0; bottom: 0;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.tf-sidebar .sidebar-item {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 14px; border-radius: var(--radius-sm);
+    font-size: .875rem; font-weight: 600; color: var(--text-sub);
+    transition: background .18s, color .18s;
+    text-decoration: none;
+}
+.tf-sidebar .sidebar-item .si-icon { font-size: 1rem; width: 22px; text-align: center; }
+.tf-sidebar .sidebar-item:hover { background: #fff5f0; color: var(--primary); }
+.tf-sidebar .sidebar-item.active { background: var(--primary); color: #fff; }
+.tf-sidebar .sidebar-item.active:hover { background: var(--primary-dark); }
+.tf-sidebar .sidebar-divider { height: 1px; background: var(--border); margin: 10px 0; }
+.tf-sidebar .sidebar-logout { margin-top: auto; padding-top: 16px; }
+.tf-sidebar .sidebar-logout .sidebar-item { color: #ef4444; }
+.tf-sidebar .sidebar-logout .sidebar-item:hover { background: #fef2f2; color: #dc2626; }

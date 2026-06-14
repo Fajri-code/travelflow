@@ -1,0 +1,18 @@
+.auth-wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: var(--gradient);
+}
+
+.auth-card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.brand-title {
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 1.8rem;
+}
