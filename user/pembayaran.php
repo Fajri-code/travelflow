@@ -15,10 +15,30 @@ $nama    = $_SESSION['nama'];
 $inisial = strtoupper(substr($nama, 0, 1));
 $id_user = $_SESSION['user'];
 $items   = $_SESSION['checkout_data'];
+$journey = $_SESSION['checkout_journey'] ?? [];
 $total   = array_sum(array_column($items, 'subtotal'));
 $promo_code = $_SESSION['promo_code'] ?? '';
 $promo_discount = $_SESSION['promo_discount'] ?? 0;
 $total_setelah_diskon = max(0, $total - $promo_discount);
+$travel_date = $journey['tanggal'] ?? date('Y-m-d');
+$travel_duration = max(1, (int)($journey['durasi'] ?? 1));
+$hotel = $_SESSION['checkout_hotel'] ?? null;
+$pickup_type = $journey['pickup_type'] ?? '';
+$pickup_detail = $journey['pickup_detail'] ?? '';
+
+function build_itinerary_payment(array $items, int $duration): array
+{
+    $duration = max(1, $duration);
+    $capacity = $duration * 2;
+    $days = [];
+    foreach ($items as $index => $item) {
+        $day = min($duration, floor($index / 2) + 1);
+        $days[$day][] = $item['nama_wisata'];
+    }
+    return ['days' => $days, 'capacity' => $capacity, 'overflow' => count($items) > $capacity];
+}
+
+$itinerary = build_itinerary_payment($items, $travel_duration);
 
 $rekening = [
     'BCA'     => ['no' => '1234567890', 'atas_nama' => 'TravelFlow Indonesia'],
@@ -93,7 +113,7 @@ if (isset($_POST['konfirmasi'])) {
     <aside class="tf-sidebar">
         <a href="dashboard.php" class="sidebar-item"><span class="si-icon">⊞</span> Dashboard</a>
         <a href="wisata.php" class="sidebar-item"><span class="si-icon">🏝</span> Daftar Wisata</a>
-        <a href="keranjang.php" class="sidebar-item"><span class="si-icon">🛒</span> Booking</a>
+        <a href="keranjang.php" class="sidebar-item"><span class="si-icon">🛒</span> Keranjang</a>
         <a href="riwayat.php" class="sidebar-item"><span class="si-icon">🕐</span> Riwayat Transaksi</a>
         <a href="profil.php" class="sidebar-item"><span class="si-icon">👤</span> Profil Saya</a>
         <div class="sidebar-divider"></div>
@@ -106,7 +126,7 @@ if (isset($_POST['konfirmasi'])) {
 
         <!-- Step Indicator -->
         <div class="steps">
-            <div class="step done">✓ Keranjang</div>
+            <div class="step done">✓ Ringkasan</div>
             <div class="step-line done"></div>
             <div class="step active">💳 Pembayaran</div>
             <div class="step-line"></div>
@@ -148,6 +168,17 @@ if (isset($_POST['konfirmasi'])) {
                     <div class="order-total-row">
                         <span>Total Pembayaran</span>
                         <span class="order-total-val">Rp <?= number_format($total_setelah_diskon, 0, ',', '.') ?></span>
+                    </div>
+                    <div style="margin-top:12px;padding-top:12px;border-top:1px solid #e2e8f0;font-size:.9rem;color:#475569;">
+                        <div><strong>Tanggal Berangkat:</strong> <?= date('d M Y', strtotime($travel_date)) ?></div>
+                        <div><strong>Durasi:</strong> <?= $travel_duration ?> hari</div>
+                        <div><strong>Hotel:</strong> <?= $hotel ? htmlspecialchars($hotel['nama_hotel']) : 'Tidak memilih hotel' ?></div>
+                        <div><strong>Penjemputan:</strong> <?= $pickup_type ? htmlspecialchars($pickup_type . ($pickup_detail ? ' - ' . $pickup_detail : '')) : 'Belum ditentukan' ?></div>
+                    </div>
+                    <div style="margin-top:10px;">
+                        <?php foreach ($itinerary['days'] as $day => $day_items): ?>
+                        <div style="font-size:.85rem;color:#334155;margin-bottom:4px"><strong>Hari <?= $day ?>:</strong> <?= implode(', ', $day_items) ?></div>
+                        <?php endforeach; ?>
                     </div>
                 </div>
 
@@ -242,7 +273,10 @@ if (isset($_POST['konfirmasi'])) {
                     <div class="summary-note mt">
                         🔒 Transaksi aman & terenkripsi
                     </div>
-                    <a href="keranjang.php" class="btn-kembali">← Kembali ke Keranjang</a>
+                    <div class="summary-note mt">
+                        🏨 Titik penjemputan dari hotel adalah opsi tambahan untuk perjalanan yang menginap atau memesan beberapa destinasi, dan tidak menambah biaya wisata.
+                    </div>
+                    <a href="ringkasan.php" class="btn-kembali">← Kembali ke Ringkasan</a>
                 </div>
             </div>
 

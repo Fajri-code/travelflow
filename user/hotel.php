@@ -43,12 +43,12 @@ $hotels = mysqli_query($conn, "SELECT * FROM hotel $where ORDER BY bintang DESC,
         <a href="dashboard.php" class="sidebar-item ">
             <span class="si-icon"></span> Dashboard
         </a>
-          <a href="hotel.php" class="sidebar-item active"><span class="si-icon"></span> Pilih Hotel</a>
+          <a href="hotel.php" class="sidebar-item active"><span class="si-icon"></span> Opsional: Penjemputan</a>
         <a href="wisata.php" class="sidebar-item ">
             <span class="si-icon"></span> Daftar Wisata
         </a>
         <a href="keranjang.php" class="sidebar-item">
-            <span class="si-icon"></span> Booking
+            <span class="si-icon"></span> Keranjang
         </a>
         <a href="riwayat.php" class="sidebar-item ">
             <span class="si-icon"></span> Riwayat Transaksi
@@ -74,8 +74,8 @@ $hotels = mysqli_query($conn, "SELECT * FROM hotel $where ORDER BY bintang DESC,
             <div class="hotel-header-overlay"></div>
             <div class="hotel-header-content">
                 <div class="hotel-badge"> Titik Penjemputan</div>
-                <h1>Pilih Hotel</h1>
-                <p>Sopir kami menjemput tepat di depan hotelmu setiap hari</p>
+                <h1>Opsional: Titik Penjemputan</h1>
+                <p>Jika Anda sedang menginap di hotel tertentu, Anda bisa memilih hotel tersebut sebagai titik penjemputan. Jika tidak perlu, Anda bisa langsung lanjut ke pemesanan wisata. Fitur ini cocok untuk perjalanan satu hari maupun beberapa hari dengan satu atau beberapa destinasi.</p>
             </div>
             <div class="hotel-header-img"></div>
         </div>
@@ -85,7 +85,7 @@ $hotels = mysqli_query($conn, "SELECT * FROM hotel $where ORDER BY bintang DESC,
             <span class="info-icon"></span>
             <div>
                 <div class="info-title">Cara Kerja</div>
-                <div class="info-desc">Pilih hotel sebagai titik penjemputan. Sopir menjemput pagi hari → antar ke destinasi → kembali ke hotel. Maks <strong>2 destinasi per hari</strong>. Untuk menginap, booking langsung ke hotel.</div>
+                <div class="info-desc">Layanan ini opsional. Jika Anda ingin dijemput dan dikembalikan ke hotel tempat menginap, pilih hotel tersebut sebagai titik penjemputan. Anda tetap bisa memesan satu atau beberapa destinasi wisata tanpa harus menginap. Sopir menjemput pagi hari → antar ke destinasi → kembali ke hotel. Maks <strong>2 destinasi per hari</strong>.</div>
             </div>
         </div>
 
@@ -96,6 +96,10 @@ $hotels = mysqli_query($conn, "SELECT * FROM hotel $where ORDER BY bintang DESC,
             <a href="hotel.php?budget=hemat" class="budget-btn <?= $budget=='hemat'?'active':'' ?>"> Hemat (≤ Rp 300rb)</a>
             <a href="hotel.php?budget=sedang" class="budget-btn <?= $budget=='sedang'?'active':'' ?>"> Sedang (Rp 300-700rb)</a>
             <a href="hotel.php?budget=premium" class="budget-btn <?= $budget=='premium'?'active':'' ?>"> Premium (> Rp 700rb)</a>
+        </div>
+
+        <div style="margin: 8px 0 18px; color: #64748b; font-size: .95rem;">
+            <strong>Catatan:</strong> Langkah ini hanya untuk kenyamanan penjemputan dari hotel. Anda tetap bisa melanjutkan pemesanan wisata tanpa memilih hotel, termasuk saat memesan beberapa destinasi berbeda.
         </div>
 
         <!-- Hotel Grid -->
@@ -132,11 +136,11 @@ $hotels = mysqli_query($conn, "SELECT * FROM hotel $where ORDER BY bintang DESC,
                     <div class="hotel-alamat"> <?= htmlspecialchars($h['alamat']) ?></div>
                     <div class="hotel-footer">
                         <div>
-                            <div class="hotel-harga-label">Referensi harga/malam</div>
-                            <div class="hotel-harga">Rp <?= number_format($h['harga_per_malam'], 0, ',', '.') ?></div>
+                            <div class="hotel-harga-label">Opsional</div>
+                            <div class="hotel-harga">Tidak termasuk biaya menginap</div>
                         </div>
                         <a href="keranjang.php?id_hotel=<?= $h['id_hotel'] ?>" class="btn-pilih-hotel">
-                            Pilih 
+                            Pilih Jika Perlu
                         </a>
                     </div>
                 </div>

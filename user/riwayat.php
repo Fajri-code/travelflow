@@ -52,29 +52,15 @@ $total_spend = mysqli_fetch_assoc(mysqli_query($conn,
 
     <!-- SIDEBAR -->
     <aside class="tf-sidebar">
-        <a href="dashboard.php" class="sidebar-item">
-            <span class="si-icon"></span> Dashboard
-        </a>
-        <a href="wisata.php" class="sidebar-item">
-            <span class="si-icon"></span> Daftar Wisata
-        </a>
-        <a href="keranjang.php" class="sidebar-item">
-            <span class="si-icon"></span> Booking
-        </a>
-        <a href="riwayat.php" class="sidebar-item active">
-            <span class="si-icon"></span> Riwayat Transaksi
-        </a>
-        <a href="ulasan.php" class="sidebar-item">
-            <span class="si-icon"></span> Ulasan Saya
-        </a>
-        <a href="profil.php" class="sidebar-item">
-            <span class="si-icon"></span> Profil Saya
-        </a>
+        <a href="dashboard.php" class="sidebar-item"><span class="si-icon">⊞</span> Dashboard</a>
+        <a href="rencana.php" class="sidebar-item"><span class="si-icon">✈</span> Buat Perjalanan</a>
+        <a href="wisata.php" class="sidebar-item"><span class="si-icon">🏝</span> Daftar Wisata</a>
+        <a href="riwayat.php" class="sidebar-item active"><span class="si-icon">🕐</span> Riwayat Transaksi</a>
+        <a href="ulasan.php" class="sidebar-item"><span class="si-icon">⭐</span> Ulasan Saya</a>
+        <a href="profil.php" class="sidebar-item"><span class="si-icon">👤</span> Profil Saya</a>
         <div class="sidebar-divider"></div>
         <div class="sidebar-logout">
-            <a href="../auth/logout.php" class="sidebar-item">
-                <span class="si-icon">⇥</span> Logout
-            </a>
+            <a href="../auth/logout.php" class="sidebar-item"><span class="si-icon">⇥</span> Logout</a>
         </div>
     </aside>
 
@@ -99,7 +85,7 @@ $total_spend = mysqli_fetch_assoc(mysqli_query($conn,
             <span></span>
             <div>
                 <div class="sukses-title">Pembayaran Berhasil!</div>
-                <div class="sukses-sub">Booking kamu sudah dikonfirmasi. Selamat menikmati perjalanan!</div>
+                <div class="sukses-sub">Pemesanan kamu sudah dikonfirmasi. Selamat menikmati perjalanan!</div>
             </div>
         </div>
         <?php unset($_SESSION['bayar_sukses']); endif; ?>
@@ -108,7 +94,7 @@ $total_spend = mysqli_fetch_assoc(mysqli_query($conn,
                 <div class="stat-icon"></div>
                 <div>
                     <div class="stat-value"><?= $total_transaksi ?></div>
-                    <div class="stat-label">Total Booking</div>
+                    <div class="stat-label">Total Pesanan</div>
                 </div>
             </div>
             <div class="stat-card">
@@ -132,8 +118,8 @@ $total_spend = mysqli_fetch_assoc(mysqli_query($conn,
             <div class="empty-state">
                 <div class="empty-icon"></div>
                 <h5>Belum ada transaksi</h5>
-                <p>Yuk mulai booking perjalanan pertamamu!</p>
-                <a href="keranjang.php" class="btn-booking">Booking Sekarang</a>
+                <p>Yuk mulai pesan perjalanan pertamamu!</p>
+                <a href="rencana.php" class="btn-booking">Buat Perjalanan Sekarang</a>
             </div>
         <?php else: ?>
             <div class="riwayat-list">

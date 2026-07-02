@@ -264,6 +264,35 @@ img { display: block; width: 100%; object-fit: cover; }
 .hotel-info-empty-text { font-size: .82rem; color: var(--text-sub); }
 .hotel-info-empty-text a { color: var(--primary); font-weight: 700; }
 
+.journey-progress {
+    display: flex; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;
+}
+.journey-step {
+    flex: 1; min-width: 110px; padding: 10px 12px; border-radius: 999px;
+    background: #f1f5f9; color: #64748b; font-size: .78rem; font-weight: 700; text-align: center;
+}
+.journey-step.active {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: #fff;
+}
+.flow-help-card {
+    background: linear-gradient(135deg, #fff7ed, #fff);
+    border: 1px solid #fed7aa; border-radius: var(--radius); padding: 16px 18px; margin-bottom: 20px;
+}
+.flow-help-title {
+    font-size: .9rem; font-weight: 800; color: #9a2c00; margin-bottom: 10px;
+}
+.flow-help-list { display: flex; flex-direction: column; gap: 10px; }
+.flow-help-item { display: flex; gap: 10px; align-items: flex-start; }
+.flow-help-item span {
+    width: 24px; height: 24px; border-radius: 50%; background: var(--primary); color: #fff;
+    display: flex; align-items: center; justify-content: center; font-size: .75rem; font-weight: 700; flex-shrink: 0;
+}
+.flow-help-item p { font-size: .78rem; color: var(--text-sub); margin-top: 2px; }
+.checkout-help-text {
+    font-size: .8rem; color: var(--text-sub); margin-bottom: 12px; line-height: 1.5;
+}
+
 .rekomendasi-text {
     font-size: .75rem;
     color: var(--primary);

@@ -96,13 +96,14 @@ $wisata_dikunjungi = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(DISTIN
 </nav>
 
 <div class="tf-layout">
+  <!-- SIDEBAR -->
     <aside class="tf-sidebar">
-        <a href="dashboard.php" class="sidebar-item"><span class="si-icon"></span> Dashboard</a>
-        <a href="wisata.php" class="sidebar-item"><span class="si-icon"></span> Daftar Wisata</a>
-        <a href="keranjang.php" class="sidebar-item"><span class="si-icon"></span> Booking</a>
-        <a href="riwayat.php" class="sidebar-item"><span class="si-icon"></span> Riwayat Transaksi</a>
-        <a href="ulasan.php" class="sidebar-item"><span class="si-icon"></span> Ulasan Saya</a>
-        <a href="profil.php" class="sidebar-item active"><span class="si-icon"></span> Profil Saya</a>
+        <a href="dashboard.php" class="sidebar-item"><span class="si-icon">⊞</span> Dashboard</a>
+        <a href="rencana.php" class="sidebar-item"><span class="si-icon">✈</span> Buat Perjalanan</a>
+        <a href="wisata.php" class="sidebar-item"><span class="si-icon">🏝</span> Daftar Wisata</a>
+        <a href="riwayat.php" class="sidebar-item"><span class="si-icon">🕐</span> Riwayat Transaksi</a>
+        <a href="ulasan.php" class="sidebar-item"><span class="si-icon">⭐</span> Ulasan Saya</a>
+        <a href="profil.php" class="sidebar-item active"><span class="si-icon">👤</span> Profil Saya</a>
         <div class="sidebar-divider"></div>
         <div class="sidebar-logout">
             <a href="../auth/logout.php" class="sidebar-item"><span class="si-icon">⇥</span> Logout</a>
@@ -132,7 +133,7 @@ $wisata_dikunjungi = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(DISTIN
             <div class="profil-stats">
                 <div class="profil-stat">
                     <div class="profil-stat-val"><?= $total_booking ?></div>
-                    <div class="profil-stat-lbl">Total Booking</div>
+                    <div class="profil-stat-lbl">Total Pesanan</div>
                 </div>
                 <div class="profil-stat-divider"></div>
                 <div class="profil-stat">
@@ -226,7 +227,7 @@ $wisata_dikunjungi = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(DISTIN
                     </div>
                     <div class="akun-info-item">
                         <span>Status Akun</span>
-                        <span class="badge-aktif"> Aktif</span>
+                        <span class="badge-aktif"> Aktif</span> 
                     </div>
                 </div>
             </div>

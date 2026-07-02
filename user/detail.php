@@ -4,6 +4,7 @@ if (!isset($_SESSION['user'])) {
     header("Location: ../auth/login.php");
     exit;
 }
+header('Cache-Control: no-store, no-cache, must-revalidate');
 include '../config/koneksi.php';
 
 $nama    = $_SESSION['nama'];
@@ -88,8 +89,8 @@ function paket_label($nama_paket) {
     <!-- SIDEBAR -->
     <aside class="tf-sidebar">
         <a href="dashboard.php" class="sidebar-item"><span class="si-icon">⊞</span> Dashboard</a>
+        <a href="rencana.php" class="sidebar-item"><span class="si-icon">✈</span> Buat Perjalanan</a>
         <a href="wisata.php" class="sidebar-item active"><span class="si-icon">🏝</span> Daftar Wisata</a>
-        <a href="keranjang.php" class="sidebar-item"><span class="si-icon">🛒</span> Booking</a>
         <a href="riwayat.php" class="sidebar-item"><span class="si-icon">🕐</span> Riwayat Transaksi</a>
         <a href="ulasan.php" class="sidebar-item"><span class="si-icon">⭐</span> Ulasan Saya</a>
         <a href="profil.php" class="sidebar-item"><span class="si-icon">👤</span> Profil Saya</a>
@@ -170,6 +171,9 @@ function paket_label($nama_paket) {
                         <span class="card-header-icon">📦</span>
                         <h3 class="section-title">Pilih Paket</h3>
                     </div>
+                    <div class="flow-alert-detail" style="background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:12px 16px;margin-bottom:16px;font-size:.83rem;color:#92400e;font-weight:600;">
+                        ✈️ Memilih paket akan membawa Anda ke alur pemesanan lengkap (tanggal, kendaraan, hotel, penjemputan)
+                    </div>
                     <div class="paket-list">
                         <?php
                         $colors = ['#fff5f0', '#f0fdf4', '#eff6ff', '#fdf4ff'];
@@ -181,7 +185,7 @@ function paket_label($nama_paket) {
                         <div class="paket-item<?= $p['id_paket'] == ($cheapest_paket['id_paket'] ?? 0) ? ' termurah' : '' ?>" style="background:<?= $bg ?>">
                             <?php $paket_desc = $p['deskripsi'] ?? ''; ?>
                             <?php $is_termurah = $p['id_paket'] == ($cheapest_paket['id_paket'] ?? 0); ?>
-                        <div class="paket-info">
+                            <div class="paket-info">
                                 <div class="paket-badge<?= $is_termurah ? ' termurah' : '' ?>">
                                     <?= $is_termurah ? 'Paket Termurah' : paket_label($p['nama_paket']) ?>
                                 </div>
@@ -191,8 +195,8 @@ function paket_label($nama_paket) {
                                 <div class="paket-desc"><?= htmlspecialchars($paket_desc) ?></div>
                                 <?php endif; ?>
                             </div>
-                            <a href="keranjang.php?id_wisata=<?= $id_wisata ?>&id_paket=<?= $p['id_paket'] ?>" class="btn-pesan">
-                                Pesan 
+                            <a href="rencana.php?preselect_wisata=<?= $id_wisata ?>&preselect_paket=<?= $p['id_paket'] ?>" class="btn-pesan">
+                                Pilih Paket &amp; Buat Perjalanan
                             </a>
                         </div>
                         <?php endwhile; ?>
@@ -249,8 +253,8 @@ function paket_label($nama_paket) {
                             Rp <?= number_format($harga_termurah, 0, ',', '.') ?>
                             <span>/orang</span>
                         </div>
-                        <a href="keranjang.php?id_wisata=<?= $id_wisata ?>" class="btn-booking-now">
-                            🎫 Booking Sekarang
+                        <a href="rencana.php?preselect_wisata=<?= $id_wisata ?>" class="btn-booking-now">
+                            ✈️ Buat Perjalanan
                         </a>
                         <div class="summary-note">
                             🔒 Pembayaran aman & terpercaya

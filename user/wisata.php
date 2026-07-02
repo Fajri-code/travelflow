@@ -47,44 +47,31 @@ $wisata = mysqli_query($conn, $wisata_sql);
 <!-- LAYOUT -->
 <div class="tf-layout">
 
-   <!-- SIDEBAR -->
+    <!-- SIDEBAR -->
     <aside class="tf-sidebar">
-        <a href="dashboard.php" class="sidebar-item">
-            <span class="si-icon"></span> Dashboard
-        </a>
-        <a href="wisata.php" class="sidebar-item active">
-            <span class="si-icon"></span> Daftar Wisata
-        </a>
-        <a href="keranjang.php" class="sidebar-item">
-            <span class="si-icon"></span> Booking
-        </a>
-        <a href="riwayat.php" class="sidebar-item ">
-            <span class="si-icon"></span> Riwayat Transaksi
-        </a>
-        <a href="ulasan.php" class="sidebar-item">
-            <span class="si-icon"></span> Ulasan Saya
-        </a>
-        <a href="profil.php" class="sidebar-item">
-            <span class="si-icon"></span> Profil Saya
-        </a>
+        <a href="dashboard.php" class="sidebar-item"><span class="si-icon">⊞</span> Dashboard</a>
+        <a href="rencana.php" class="sidebar-item"><span class="si-icon">✈</span> Buat Perjalanan</a>
+        <a href="wisata.php" class="sidebar-item active"><span class="si-icon">🏝</span> Daftar Wisata</a>
+        <a href="riwayat.php" class="sidebar-item"><span class="si-icon">🕐</span> Riwayat Transaksi</a>
+        <a href="ulasan.php" class="sidebar-item"><span class="si-icon">⭐</span> Ulasan Saya</a>
+        <a href="profil.php" class="sidebar-item"><span class="si-icon">👤</span> Profil Saya</a>
         <div class="sidebar-divider"></div>
         <div class="sidebar-logout">
-            <a href="../auth/logout.php" class="sidebar-item">
-                <span class="si-icon">⇥</span> Logout
-            </a>
+            <a href="../auth/logout.php" class="sidebar-item"><span class="si-icon">⇥</span> Logout</a>
         </div>
     </aside>
+
 
     <!-- MAIN -->
     <main class="tf-main">
         <!-- Page Header -->
         <div class="wisata-page-header">
+            <img class="wisata-hero-img" src="../assets/img/wisata/bag.png" alt="" onerror="this.style.display='none'">
             <div class="wisata-header-content">
                 <div class="wisata-header-badge">✈ Jelajahi Indonesia</div>
                 <h2 class="wisata-header-title">Temukan Destinasi <span>Impianmu</span></h2>
                 <p class="wisata-header-sub">Ribuan pengalaman menakjubkan menunggumu — pilih destinasi dan mulai petualangan tak terlupakan</p>
             </div>
-            <div class="wisata-header-img"></div>
         </div>
 
         <div class="filter-bar">
@@ -179,7 +166,7 @@ $wisata = mysqli_query($conn, $wisata_sql);
                                 <div class="card-price-label">Mulai dari</div>
                                 <div class="card-price">Rp<?= number_format($w['harga_mulai'], 0, ',', '.') ?><span>/orang</span></div>
                             </div>
-                            <a href="detail.php?id=<?= $w['id_wisata'] ?>" class="btn-pilih">Pilih Paket</a>
+                            <a href="detail.php?id=<?= $w['id_wisata'] ?>" class="btn-pilih">Lihat Detail</a>
                         </div>
                     </div>
                 </div>

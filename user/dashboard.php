@@ -105,23 +105,21 @@ else $greeting = 'Selamat Malam';
  <!-- SIDEBAR -->
     <aside class="tf-sidebar">
         <a href="dashboard.php" class="sidebar-item active">
-            <span class="si-icon"></span> Dashboard
+            <span class="si-icon">⊞</span> Dashboard
         </a>
-          <a href="hotel.php" class="sidebar-item "><span class="si-icon"></span> Pilih Hotel</a>
-        <a href="wisata.php" class="sidebar-item ">
-            <span class="si-icon"></span> Daftar Wisata
+        <a href="rencana.php" class="sidebar-item"><span class="si-icon">✈</span> Buat Perjalanan</a>
+        <a href="wisata.php" class="sidebar-item">
+            <span class="si-icon">🏝</span> Daftar Wisata
         </a>
-        <a href="keranjang.php" class="sidebar-item">
-            <span class="si-icon"></span> Booking
-        </a>
-        <a href="riwayat.php" class="sidebar-item ">
-            <span class="si-icon"></span> Riwayat Transaksi
+
+        <a href="riwayat.php" class="sidebar-item">
+            <span class="si-icon">🕐</span> Riwayat Transaksi
         </a>
         <a href="ulasan.php" class="sidebar-item">
-            <span class="si-icon"></span> Ulasan Saya
+            <span class="si-icon">⭐</span> Ulasan Saya
         </a>
         <a href="profil.php" class="sidebar-item">
-            <span class="si-icon"></span> Profil Saya
+            <span class="si-icon">👤</span> Profil Saya
         </a>
         <div class="sidebar-divider"></div>
         <div class="sidebar-logout">
@@ -142,6 +140,7 @@ else $greeting = 'Selamat Malam';
       <div class="hero-content">
         <h1>Jelajahi Yogyakarta dengan Nyaman &amp; Berkesan</h1>
         <p>Temukan keajaiban candi, pantai, dan budaya Jogja yang tak terlupakan</p>
+        
       </div>
     </div>
 
@@ -168,36 +167,37 @@ else $greeting = 'Selamat Malam';
     </div>
 
 
-    <!-- Hotel Banner -->
+    <!-- Hotel Banner — diganti jadi CTA flow baru -->
     <div class="hotel-banner">
         <div class="hotel-banner-left">
-            <div class="hotel-banner-badge"> Titik Penjemputan</div>
-            <h3>Pesan Wisata Lengkap dengan Hotel!</h3>
-            <p>Sopir kami menjemput langsung di depan hotel pilihanmu. Tinggal duduk santai &amp; nikmati perjalanan.</p>
+            <div class="hotel-banner-badge">✈ Travel Agent Profesional</div>
+            <h3>Rencanakan Perjalanan Impian Anda</h3>
+            <p>Buat itinerary lengkap dengan destinasi pilihan, kendaraan + sopir, penginapan, dan titik penjemputan — semua dalam satu alur pemesanan yang mudah.</p>
             <div class="hotel-banner-features">
-                <div class="hotel-feature-item">✅ Sopir profesional</div>
-                <div class="hotel-feature-item">✅ Jemput di hotel</div>
+                <div class="hotel-feature-item">✅ Itinerary per hari</div>
                 <div class="hotel-feature-item">✅ Maks 2 destinasi/hari</div>
-                <div class="hotel-feature-item">✅ Antar kembali ke hotel</div>
+                <div class="hotel-feature-item">✅ Sopir profesional</div>
+                <div class="hotel-feature-item">✅ Hotel & penjemputan</div>
             </div>
-            <a href="hotel.php" class="hotel-banner-btn"> Pilih Hotel Sekarang </a>
+            <a href="rencana.php" class="hotel-banner-btn">✈ Buat Perjalanan Sekarang</a>
         </div>
         <div class="hotel-banner-right">
             <div class="hotel-banner-cards">
                 <div class="hotel-mini-card">
-                    <div class="hotel-mini-icon">⭐⭐⭐⭐⭐</div>
-                    <div class="hotel-mini-name">Hotel Bintang 5</div>
-                    <div class="hotel-mini-price">Mulai Rp 750rb</div>
+                    <div class="hotel-mini-icon">📅</div>
+                    <div class="hotel-mini-name">Pilih Tanggal & Durasi</div>
+                    <div class="hotel-mini-price">Langkah 1</div>
                 </div>
                 <div class="hotel-mini-card">
-                    <div class="hotel-mini-icon">⭐⭐⭐⭐</div>
-                    <div class="hotel-mini-name">Hotel Bintang 4</div>
-                    <div class="hotel-mini-price">Mulai Rp 450rb</div>
+                    <div class="hotel-mini-icon">🏝</div>
+                    <div class="hotel-mini-name">Pilih Destinasi</div>
+                    <div class="hotel-mini-price">Langkah 2</div>
                 </div>
                 <div class="hotel-mini-card">
-                    <div class="hotel-mini-icon">⭐⭐⭐</div>
-                    <div class="hotel-mini-name">Hotel Bintang 3</div>
-                    <div class="hotel-mini-price">Mulai Rp 250rb</div>
+           
+                <div class="hotel-mini-icon">🚗</div>
+                    <div class="hotel-mini-name">Kendaraan & Hotel</div>
+                    <div class="hotel-mini-price">Langkah 3–4</div>
                 </div>
             </div>
         </div>
@@ -236,7 +236,7 @@ else $greeting = 'Selamat Malam';
               <div class="card-price">Rp <?= number_format($w['harga_termurah'] ?? 0, 0, ',', '.') ?><span>/ orang</span></div>
             </div>
             <a href="detail.php?id=<?= $w['id_wisata'] ?>">
-              <button class="btn-pilih">Pilih<br>Paket</button>
+              <button class="btn-pilih">Lihat<br>Detail</button>
             </a>
           </div>
         </div>
@@ -278,7 +278,7 @@ else $greeting = 'Selamat Malam';
         <div class="promo-badge">Penawaran Spesial</div>
         <h3>Diskon 20% untuk Booking Pertama!</h3>
         <p>Gunakan kode <strong>JOGJA20</strong> saat booking dan dapatkan potongan harga spesial.</p>
-        <a href="keranjang.php" class="promo-btn">Booking Sekarang </a>
+        <a href="rencana.php" class="promo-btn">Mulai Buat Perjalanan</a>
       </div>
       <div class="promo-img"></div>
     </div>
@@ -292,7 +292,7 @@ else $greeting = 'Selamat Malam';
     <?php if (mysqli_num_rows($transaksi_terakhir) == 0): ?>
       <div class="empty-transaksi">
         <div class="empty-icon">📭</div>
-        <p>Belum ada transaksi. <a href="wisata.php">Mulai booking sekarang!</a></p>
+        <p>Belum ada transaksi. <a href="rencana.php">Buat perjalanan pertama sekarang!</a></p>
       </div>
     <?php else: ?>
       <div class="transaksi-list">

@@ -80,13 +80,14 @@ $ulasan_saya = mysqli_query($conn, "
 </nav>
 
 <div class="tf-layout">
+  <!-- SIDEBAR -->
     <aside class="tf-sidebar">
-        <a href="dashboard.php" class="sidebar-item"><span class="si-icon"></span> Dashboard</a>
-        <a href="wisata.php" class="sidebar-item"><span class="si-icon"></span> Daftar Wisata</a>
-        <a href="keranjang.php" class="sidebar-item"><span class="si-icon"></span> Booking</a>
-        <a href="riwayat.php" class="sidebar-item"><span class="si-icon"></span> Riwayat Transaksi</a>
-        <a href="ulasan.php" class="sidebar-item active"><span class="si-icon"></span> Ulasan Saya</a>
-        <a href="profil.php" class="sidebar-item"><span class="si-icon"></span> Profil Saya</a>
+        <a href="dashboard.php" class="sidebar-item"><span class="si-icon">⊞</span> Dashboard</a>
+        <a href="rencana.php" class="sidebar-item"><span class="si-icon">✈</span> Buat Perjalanan</a>
+        <a href="wisata.php" class="sidebar-item"><span class="si-icon">🏝</span> Daftar Wisata</a>
+        <a href="riwayat.php" class="sidebar-item"><span class="si-icon">🕐</span> Riwayat Transaksi</a>
+        <a href="ulasan.php" class="sidebar-item active"><span class="si-icon">⭐</span> Ulasan Saya</a>
+        <a href="profil.php" class="sidebar-item"><span class="si-icon">👤</span> Profil Saya</a>
         <div class="sidebar-divider"></div>
         <div class="sidebar-logout">
             <a href="../auth/logout.php" class="sidebar-item"><span class="si-icon">⇥</span> Logout</a>
